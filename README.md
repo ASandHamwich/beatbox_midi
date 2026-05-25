@@ -14,7 +14,7 @@ beatbox_midi/
 │   ├── data.yaml           # dataset name, class list
 │   └── model.yaml          # random state, train/test split
 ├── notebooks/
-│   └── 01_eda.ipynb        # exploratory data analysis
+│   └── eda.ipynb        # exploratory data analysis
 ├── scripts/
 │   └── train_all.sh        # train all three models in sequence
 ├── src/
@@ -46,9 +46,6 @@ uv run python -m training.train --model gradient_boosting
 
 # Train all three models
 bash scripts/train_all.sh
-
-# Launch Jupyter for EDA
-uv run jupyter lab notebooks/
 ```
 
 ## Features
