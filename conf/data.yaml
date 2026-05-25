@@ -1,0 +1,9 @@
+hf_dataset: "maxardito/beatbox"
+
+# Sorted alphabetically — this order is used to pin LabelEncoder class indices.
+# Add new classes here if the dataset is extended.
+classes:
+  - clap
+  - hihat
+  - kick
+  - snare

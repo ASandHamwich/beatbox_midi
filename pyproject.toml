@@ -1,0 +1,28 @@
+[project]
+name = "beatbox-midi"
+version = "0.1.0"
+description = "Beatbox sound classification and MIDI generation"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets",
+    "librosa",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "seaborn",
+    "scikit-learn",
+    "joblib",
+    "jupyter",
+    "pyyaml",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/training", "src/utils"]
+
+[tool.uv.workspace]
+members = [".", "packages/*"]

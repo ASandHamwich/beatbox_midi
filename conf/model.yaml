@@ -1,0 +1,6 @@
+# Seed for all random operations (train/test split, classifier).
+# Change to run with a different split.
+random_state: 42
+
+# Fraction of samples held out for evaluation.
+test_size: 0.2

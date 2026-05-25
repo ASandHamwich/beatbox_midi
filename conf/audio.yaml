@@ -1,0 +1,8 @@
+# All audio is resampled to sample_rate on load (librosa default is 22050).
+sample_rate: 22050
+
+# MFCC extraction parameters.
+# Increasing n_mfcc captures more spectral detail but adds noise beyond ~13.
+n_mfcc: 13
+hop_length: 512
+n_fft: 2048

@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# uv
+.python-version
+
+# Dataset cache (large audio files — re-downloadable)
+.cache/
+
+# Artifacts
+models/*.joblib
+reports/*.png
+reports/*.csv
+
+# Logs (keep the directory, ignore the files)
+logs/*.log
+
+# Jupyter
+.ipynb_checkpoints/
