@@ -4,6 +4,12 @@ Classify beatbox sounds and (eventually) generate MIDI from them.
 
 Built with Python + uv, trained on the [`maxardito/beatbox`](https://huggingface.co/datasets/maxardito/beatbox) HuggingFace dataset.
 
+## Current status
+
+**v0.1 — classification only.** 
+
+Current version: isolated beatbox sound classification across four classes (clap, hihat, kick, snare). MIDI generation is planned as the next layer.
+
 ## Project layout
 
 ```
@@ -47,6 +53,30 @@ uv run python -m training.train --model gradient_boosting
 # Train all three models
 bash scripts/train_all.sh
 ```
+
+## Example usage
+
+### Classify a single audio clip
+
+```python
+import librosa
+from training.predict import predict, predict_proba
+
+audio, sr = librosa.load("my_beatbox.wav", sr=22050, mono=True)
+
+# Hard label
+label = predict(audio, sr)
+print(label)  # → "kick"
+
+# Class probabilities
+probs = predict_proba(audio, sr)
+print(probs)  # → {"clap": 0.01, "hihat": 0.02, "kick": 0.96, "snare": 0.01}
+```
+
+> **Note:** `predict()` loads `models/classifier.joblib`. After training, copy or symlink your chosen model to that filename:
+> ```bash
+> cp models/random_forest_<timestamp>.joblib models/classifier.joblib
+> ```
 
 ## Features
 
@@ -110,6 +140,8 @@ Training time: **3.0 s**
 | Gradient Boosting | **1.00** | 3.0 s |
 
 Random Forest and Gradient Boosting both achieve perfect classification on the held-out test set. SVM struggles with **clap** (F1 0.66), likely due to its spectral overlap with snare; the default RBF kernel without feature scaling is a probable cause. Random Forest is the preferred default — same accuracy as Gradient Boosting at 7× less training time.
+
+> These results should be interpreted as baseline performance on a clean, isolated-sample dataset; not proof of real-world robustness.
 
 ---
 
