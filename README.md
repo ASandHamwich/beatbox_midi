@@ -129,7 +129,9 @@ The current dataset covers four core drum sounds. Real-world beatboxing is consi
 - Augmentation strategies: pitch shift (±2 semitones), time stretch (0.9–1.1×), additive white/pink noise, room impulse response convolution. All can be done with `librosa` and `soundfile` without needing new recordings.
 
 **Additional datasets to consider**
-- [`IAMRhythm`](https://zenodo.org/record/4060245) — annotated beatbox recordings with a wider vocabulary
+- BaDumTss Dataset: A multi-task learning dataset that provides isolated beatbox samples and full polyphonic tracks with per-instrument labels like kick, snare, and hi-hats.
+- Queen Mary University (QMUL) Beatbox Dataset: A seminal corpus in the field where experienced beatboxers recorded files that were manually annotated with time-aligned utterances and standard drum sounds.
+- Amateur Vocal Percussion (AVP) Dataset: Contains over 9,000 utterances from participants with varying levels of experience, specifically annotated with human vocalizations mapped to kick drums, snare drums, and hi-hats.
 - Self-recorded data via `sounddevice` or a simple recording script — keeps the class distribution under control and allows artist-specific fine-tuning
 
 ---
